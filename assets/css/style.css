@@ -1,45 +1,22 @@
 
-h1 { 
-    display: block;
-    font-size: 2em;
-    margin-top: 0.67em;
-    margin-bottom: 0.67em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
 
+h1 {
+text-align: center;
 
-  h2 {
-    display: block;
-    font-size: 1.17em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
+}
 
-  h3 { 
-    display: block;
-    font-size: 1.17em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;
-  }
-
-h2 {
+p1 {
 
     float: left;
     margin-right: 10px;  
+    margin-top: 15px;
 }
 
-h3{
+p2{
 
     float: left;
     margin-right: 15px;
+    margin-bottom: 30px;
    
 
 }
@@ -51,6 +28,8 @@ p {
 
 .GameSection {
     height: 130px;
+    
+    
 
 }
 
@@ -59,4 +38,59 @@ p {
     clear: both;
     display: table;
   }
+  
+  #Remaining_Guesses {
+
+    position:absolute;
+    top: 0px;
+    right: 0px;
+  }
+
+  #Completed_Words {
+
+    position:absolute;
+    top: 30px;
+    right: 0px;
+  }
+
+  body{
+    background-image: url("../images/Sonic_Background_3.png");
+    background-color: lightblue;
+
+  }
+
+  #Title_Block {
+
+    height: 120px;
+    margin-bottom: 20px;
+    background-color: darkblue;
+   padding-top: 20px;
+    padding-bottom: 40px;
+    text-align: center;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+
+  #GameContainer {
+    position: relative;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkblue;
+    color: white;
+    padding: 10px;
+    min-height: 500px;
+
+
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+
 

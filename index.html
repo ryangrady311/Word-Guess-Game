@@ -5,188 +5,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Word Guess Game</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    <title>Sonic Hangman</title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
 
-    <h1>Welcome to Hangman</h1>
-
+    <div id=Title_Block>
+    <h1>Sonic Hangman</h1>
+    </div>
     <div onkeyup="TakeTurn()" id="GameContainer">
 
+
         <div class=GameSection>
-            <h3 style="float: clear" id="Hangman_Game"></h3>
+            <p>Word To Guess!</p>
+            <p1 id="Hangman_Game"></p1>
         </div>
         <br style="clear:both" />
 
-        <div class=GameSection>
-            <h2 id="Guessed_Letters">Guessed Letters</h2>
+        <div class=GameSection >
+            <p2>Incorrect Letters:</p2>
+
+            <br style="clear:both" />
+
+            <p2  id="Guessed_Letters" ></p2>
         </div>
 
         <div class=GameSection>
-            <h2 id="Remaining_Guesses"></h2>
+            <p id="Remaining_Guesses">Remaining Guesses: 3</p>
+        </div>
+        <div class=GameSection>
+                <p id="Completed_Words"></p>
         </div>
     </div>
-    <script type="text/javascript">
-
-        //Master word array, modify this array to change which words will be in the game
-
-        MasterWordArr = ["SONIC", "TAILS", "SEGA", "ADVENTURE", "EGGMAN", "KNUCKLES"];
-        //var UnderscoreArr = [];
 
 
-        if (confirm("Press ANY Button to play Sonic Hangman")) {
-            var InitializingRound = true;
-            var DoneWithRound = true;
-            var remainingGuesses = 3;
-            var WordToGuess = [];
-            var MyRandomNumber = 0;
-            var UnderscoreArr = [];
-            var GuessedLetters = [];
-        } else {
-            var DoneWithRound = true;
-            var InitializingRound = true;
-            var remainingGuesses = 3;
-            var WordToGuess = [];
-            var MyRandomNumber = 0;
-            var UnderscoreArr = [];
-            var GuessedLetters = [];
-        }
-        //Start the game  
-
-        document.onkeyup = function () {
-
-            var userguess = String.fromCharCode(event.keyCode).toUpperCase();
-            console.log(userguess);
-
-
-
-
-            //Initializes the game
-
-            if (DoneWithRound == true) {
-                MyRandomNumber = Math.floor(Math.random() * MasterWordArr.length);
-
-
-                WordToGuess = MasterWordArr[MyRandomNumber].split("");
-
-                console.log(WordToGuess);
-                console.log(WordToGuess.length);
-
-                UnderscoreArr = [];
-
-                GuessedLetters = [];
-
-
-                //log the spaces
-
-                for (var j = 0; j < WordToGuess.length; j++) {
-
-                    UnderscoreArr[j] = "_";
-                    console.log(UnderscoreArr[j]);
-
-                    // document.getElementById("Hangman_Underscores").textContent = UnderscoreArr[j];
-
-                    var node = document.createElement("h3");
-                    var textnode = document.createTextNode(UnderscoreArr[j]);
-                    node.appendChild(textnode);
-                    document.getElementById("Hangman_Game").appendChild(node);
-
-
-
-                }
-
-                DoneWithRound = false;
-                console.log("First Round Works")
-            }
-
-            //gameplay
-
-            if (InitializingRound == false) {
-
-
-                for (var k = 0; k < WordToGuess.length; k++) {
-
-                    if (userguess == WordToGuess[k]) {
-
-                        UnderscoreArr[k] = WordToGuess[k];
-
-
-                    }
-
-
-                }
-
-
-            //Clear Previous Turn
-
-                var myNode = document.getElementById("Hangman_Game");
-                    while (myNode.firstChild) {
-                    myNode.removeChild(myNode.firstChild);
-                    }
-
-            //Update Hangman Array to Reflect New Guess
-                for (var y = 0; y < WordToGuess.length; y++) {
-                    
-
-                    var node = document.createElement("h3");
-                    var textnode = document.createTextNode(UnderscoreArr[y]);
-                    node.appendChild(textnode);
-                    document.getElementById("Hangman_Game").appendChild(node);
-
-
-                }
-
-                console.log(UnderscoreArr)
-
-                //remainingGuesses = remainingGuesses - 1;
-
-
-            }
-
-            /*         
-                 for (var j = 0; j < WordToGuess.length; j++) {
- 
-                     UnderscoreArr[j] = "_";
-                     console.log(UnderscoreArr[j]);
- 
-                     // document.getElementById("Hangman_Underscores").textContent = UnderscoreArr[j];
- 
-                     var node = document.createElement("h3");
-                     var textnode = document.createTextNode(UnderscoreArr[j]);
-                     node.appendChild(textnode);
-                     document.getElementById("Hangman_Game").appendChild(node);
- 
- 
- 
-                 }
- 
- */
-            document.getElementById("Remaining_Guesses").innerHTML = "<h2>Remaining Guesses: &nbsp" + remainingGuesses + "</h2>";
-            InitializingRound = false;
-
-            //Deletes guessed word from the master array, so that it won't be generated twice in the same game
-
-            if (MasterWordArr.length > 1 && DoneWithRound == true) {
-                MasterWordArr.splice(MyRandomNumber, 1);
-                //console.log(MasterWordArr.length);
-            }
-            else if (MasterWordArr.length == 1 && DoneWithRound == true) {
-                document.getElementById("GameContainer").innerHTML = "<h1>Yay you win </h1>";
-
-            }
-
-            else if (remainingGuesses == 0) {
-
-                document.getElementById("GameContainer").innerHTML = "<h1>Game Over, refresh the page to try again!</h1>";
-            }
-
-        }
-
-
-    </script>
+<script src="assets/javascript/game.js"> </script>
 
 
 </body>
