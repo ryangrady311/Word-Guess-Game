@@ -1,27 +1,27 @@
 
 //Master word array, modify this array to change which words will be in the game
 
-MasterWordArr = ["SONIC", "TAILS", "SEGA", "ADVENTURE", "EGGMAN", "KNUCKLES"];
+MasterWordArr = ["SONIC", "TAILS", "SEGA", "ADVENTURE", "EGGMAN", "KNUCKLES","EMERALD"];
 //var UnderscoreArr = [];
 
 
-if (confirm("Can you guess all six hidden words?\n\nPress either button to play...")) {
+if (confirm("Can you guess all seven hidden words?\n\nTurn up the volume and press either button to play...")) {
     var InitializingRound = true;
     var DoneWithRound = true;
-    var remainingGuesses = 3;
+    var remainingGuesses = 5;
     var WordToGuess = [];
     var MyRandomNumber = 0;
     var UnderscoreArr = [];
     var GuessedLetters = [];
     var correctGuess = false;
-    var wordsCompleted = 0;
+var wordsCompleted = 0;
 
     document.getElementById("Remaining_Guesses").innerHTML = "<p2>Remaining Guesses: &nbsp" + remainingGuesses + "</p2>";
 
 } else {
     var DoneWithRound = true;
     var InitializingRound = true;
-    var remainingGuesses = 3;
+    var remainingGuesses = 5;
     var WordToGuess = [];
     var MyRandomNumber = 0;
     var UnderscoreArr = [];
@@ -34,12 +34,27 @@ if (confirm("Can you guess all six hidden words?\n\nPress either button to play.
 }
 //Start the game  
 
+
 document.onkeyup = function () {
+
+    var mainMusic= document.getElementById("myAudio");
+
+    mainMusic.loop = true;
+    mainMusic.load();
+
+}
+
+
+document.onkeyup = function () {
+
+   
+
+    //store the userguess
 
     var userguess = String.fromCharCode(event.keyCode).toUpperCase();
     
 
-
+   
 
 
     //Initializes the game
@@ -91,11 +106,16 @@ document.onkeyup = function () {
 
         }
 
-        remainingGuesses = 3;
+        remainingGuesses = 5;
         DoneWithRound = false;
 
     }
 
+
+    //check to see if the userguess is a letter
+
+    if (event.keyCode >= 65 && event.keyCode <= 90){   
+    
     //gameplay
 
     if (InitializingRound == false) {
@@ -149,7 +169,7 @@ document.onkeyup = function () {
         }
 
         //Check to see if the user guessed the whole word correctly
-
+    
         DoneWithRound = true;
 
         for (var k = 0; k < WordToGuess.length; k++) {
@@ -187,8 +207,9 @@ document.onkeyup = function () {
  
  
          }
- 
+        
 */
+        }
     document.getElementById("Remaining_Guesses").innerHTML = "<p2>Remaining Guesses: &nbsp" + remainingGuesses + "</p2>";
 
     correctGuess = false;
@@ -211,7 +232,7 @@ document.onkeyup = function () {
 
          //reinitializes remaining guesses back to 3 
 
-          remainingGuesses = 3;
+          remainingGuesses = 5;
  
 //If you win the game...          
         
@@ -227,5 +248,7 @@ document.onkeyup = function () {
 
         document.getElementById("GameContainer").innerHTML = "<h1>Game Over <br> <br> Refresh the page to try again!</h1>";
     }
+
+
 
 }

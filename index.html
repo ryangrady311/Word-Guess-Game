@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- <html lang="en"> -->
 
 <head>
     <meta charset="UTF-8">
@@ -11,6 +11,18 @@
 
 <body>
 
+        <iframe src="assets/sounds/Sonic_Escape_From_The_City.mp3" allow="autoplay" style="display:none" id="iframeAudio"></iframe>
+
+
+
+        <audio autoplay loop>
+          <source src="assets/sounds/Sonic_Escape_From_The_City.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        
+
+ 
+
     <div id=Title_Block>
     <h1>Sonic Hangman</h1>
     </div>
@@ -18,7 +30,7 @@
 
 
         <div class=GameSection>
-            <p>Word To Guess!</p>
+            <p>Word To Guess! (Press any button to start)</p>
             <p1 id="Hangman_Game"></p1>
         </div>
         <br style="clear:both" />
@@ -38,10 +50,21 @@
                 <p id="Completed_Words"></p>
         </div>
     </div>
-
+ 
 
 <script src="assets/javascript/game.js"> </script>
 
+<!-- Play audio!!! -->
+
+<script>
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if(!isChrome){
+      $('#iframeAudio').remove()
+    }
+  else{
+     $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
+  }
+</script>
 
 </body>
 
