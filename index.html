@@ -21,7 +21,7 @@
         </audio>
         
 
- 
+ <div class="bg">
 
     <div id=Title_Block>
     <h1>Sonic Hangman</h1>
@@ -29,7 +29,7 @@
     <div onkeyup="TakeTurn()" id="GameContainer">
 
 
-        <div class=GameSection>
+        <div class=GameSection id="TopGameSection">
             <p>Word To Guess! (Press any button to start)</p>
             <p1 id="Hangman_Game"></p1>
         </div>
@@ -43,14 +43,14 @@
             <p2  id="Guessed_Letters" ></p2>
         </div>
 
-        <div class=GameSection>
-            <p id="Remaining_Guesses">Remaining Guesses: 3</p>
+        <div >
+            <p id="Remaining_Guesses">Remaining Guesses: 6</p>
         </div>
-        <div class=GameSection>
+        <div >
                 <p id="Completed_Words"></p>
         </div>
     </div>
- 
+</div>
 
 <script src="assets/javascript/game.js"> </script>
 

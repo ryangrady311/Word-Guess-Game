@@ -8,7 +8,7 @@ MasterWordArr = ["SONIC", "TAILS", "SEGA", "ADVENTURE", "EGGMAN", "KNUCKLES","EM
 if (confirm("Can you guess all seven hidden words?\n\nTurn up the volume and press either button to play...")) {
     var InitializingRound = true;
     var DoneWithRound = true;
-    var remainingGuesses = 5;
+    var remainingGuesses = 6;
     var WordToGuess = [];
     var MyRandomNumber = 0;
     var UnderscoreArr = [];
@@ -21,7 +21,7 @@ var wordsCompleted = 0;
 } else {
     var DoneWithRound = true;
     var InitializingRound = true;
-    var remainingGuesses = 5;
+    var remainingGuesses = 6;
     var WordToGuess = [];
     var MyRandomNumber = 0;
     var UnderscoreArr = [];
@@ -48,7 +48,7 @@ document.onkeyup = function () {
 document.onkeyup = function () {
 
    
-
+    
     //store the userguess
 
     var userguess = String.fromCharCode(event.keyCode).toUpperCase();
@@ -106,14 +106,20 @@ document.onkeyup = function () {
 
         }
 
-        remainingGuesses = 5;
+        remainingGuesses = 6;
         DoneWithRound = false;
 
     }
 
 
     //check to see if the userguess is a letter
+/*
+    Personal Note:
 
+    if (event.keyCode >= 48 && event.keyCode <= 57)
+    alert("input was 0-9");
+*/
+    //Check to see if the user inputs a letter
     if (event.keyCode >= 65 && event.keyCode <= 90){   
     
     //gameplay
@@ -232,7 +238,7 @@ document.onkeyup = function () {
 
          //reinitializes remaining guesses back to 3 
 
-          remainingGuesses = 5;
+          remainingGuesses = 6;
  
 //If you win the game...          
         
