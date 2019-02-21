@@ -89,6 +89,8 @@ document.onkeyup = function () {
 
         GuessedLetters = [];
 
+        incorrectLetters = [];
+
 
         //log the spaces
 
