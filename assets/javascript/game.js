@@ -37,15 +37,6 @@ if (confirm("Can you guess all seven hidden words?\n\nTurn up the volume and pre
 //Start the game  
 
 
-document.onkeyup = function () {
-
-    var mainMusic= document.getElementById("myAudio");
-
-    mainMusic.loop = true;
-    mainMusic.load();
-
-}
-
 
 document.onkeyup = function () {
 
