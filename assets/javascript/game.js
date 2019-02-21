@@ -1,7 +1,7 @@
 
 //Master word array, modify this array to change which words will be in the game
 
-MasterWordArr = ["SONIC", "TAILS", "SEGA", "ADVENTURE", "EGGMAN", "KNUCKLES","EMERALD"];
+MasterWordArr = ["SONIC", "TAILS", "SEGA", "SHADOW", "EGGMAN", "KNUCKLES","CHAOS"];
 //var UnderscoreArr = [];
 
 
@@ -14,7 +14,8 @@ if (confirm("Can you guess all seven hidden words?\n\nTurn up the volume and pre
     var UnderscoreArr = [];
     var GuessedLetters = [];
     var correctGuess = false;
-var wordsCompleted = 0;
+    var wordsCompleted = 0;
+    var incorrectLetters = [];
 
     document.getElementById("Remaining_Guesses").innerHTML = "<p2>Remaining Guesses: &nbsp" + remainingGuesses + "</p2>";
 
@@ -28,6 +29,7 @@ var wordsCompleted = 0;
     var GuessedLetters = [];
     var correctGuess = false;
     var wordsCompleted = 0;
+    var incorrectLetters = [];
 
     document.getElementById("Remaining_Guesses").innerHTML = "<p2>Remaining Guesses: &nbsp" + remainingGuesses + "</p2>";
 
@@ -161,6 +163,18 @@ document.onkeyup = function () {
 
         }
 
+        //Set correctGuess variable to true if the user has already guessed that letter, stopping the remaining guesses counter from triggering
+
+        for (var z = 0; z<7;z++){
+
+            if (userguess == incorrectLetters[z]){
+
+                correctGuess = true;
+            } 
+
+        }
+        
+
         //Check to see if user guessed incorrectly and print incorrect guess to screen
 
         if (correctGuess == false) {
@@ -171,6 +185,10 @@ document.onkeyup = function () {
             var textnode2 = document.createTextNode(userguess);
             node2.appendChild(textnode2);
             document.getElementById("Guessed_Letters").appendChild(node2);
+
+            incorrectLetters.push(userguess);
+           
+
 
         }
 
