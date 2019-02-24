@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <!-- Import jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 <!--  -->
 </head>
 
@@ -62,13 +64,9 @@
 <!-- Play audio!!! -->
 
 <script>
-var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
-    if(!isChrome){
-      $('#iframeAudio').remove()
-    }
-  else{
+
      $('#playAudio').remove() //just to make sure that it will not have 2x audio in the background 
-  }
+  
 </script>
 
 </body>
