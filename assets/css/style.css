@@ -126,8 +126,28 @@ p {
     position: relative;
   }
 
+  footer {
+    padding: 15px 0;
+    position:absolute;
+    bottom: -1;
+    left: 0;
+    font-size: 16px;
+    color: #cccccc;
+    text-align: center;
+    background: #666666;
+    border-top: 8px solid #4aaaa5;
+    height: 50px;
+    margin-top: 20px;
+    width: 100%;
+    z-index: 99;
+  }
 
+ #footer_link {
 
+  color: white;
+
+ }
+  
   * {
     box-sizing: border-box;
     font-family: Tahoma, Geneva, sans-serif;
